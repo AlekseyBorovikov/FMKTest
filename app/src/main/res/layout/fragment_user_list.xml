@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/View.FullSize.Vertical">
+
+    <Toolbar
+        style="@style/View.FullWidth.WrapHeight">
+
+        <TextView
+            android:id="@+id/label"
+            android:text="@string/user_list_title"
+            style="@style/View.WrapWidth.WrapHeight"
+            android:layout_gravity="center"
+            android:textAppearance="@style/Text.Title" />
+
+    </Toolbar>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        style="@style/View.FullSize.paddingHorizontal_32dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userRecycler"
+            style="@style/View.FullWidth.WrapHeight.marginHorizontal_32dp"
+            tools:listitem="@layout/item_user_list" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/error"
+        style="@style/View.WrapWidth.WrapHeight.marginTop_20dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/reloadButton"
+        android:text="@string/error_button_reload"
+        style="@style/View.WrapWidth.WrapHeight.marginTop_8dp"
+        android:visibility="gone" />
+
+</LinearLayout>

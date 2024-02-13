@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/UserCard" >
+
+    <LinearLayout
+        style="@style/View.FullWidth.WrapHeight.Vertical.Padding_16"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/avatar"
+            style="@style/View.FullWidth.WrapHeight"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/login"
+            style="@style/View.WrapWidth.WrapHeight.marginTop_20dp"
+            android:textAppearance="@style/Text.Header"
+            tools:text="{LOGIN}" />
+
+        <TextView
+            android:id="@+id/followers"
+            style="@style/View.WrapWidth.WrapHeight.marginTop_8dp"
+            android:textAppearance="@style/Text"
+            tools:text="{count} подписчиков"  />
+
+        <TextView
+            android:id="@+id/repositories"
+            style="@style/View.WrapWidth.WrapHeight.marginTop_2dp"
+            android:textAppearance="@style/Text"
+            tools:text="{count} репозиториев" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

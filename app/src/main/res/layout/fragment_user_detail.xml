@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/View.FullSize.Vertical" >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/View.FullWidth.WrapHeight"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/loginTitle"
+            style="@style/View.WrapWidth.WrapHeight.marginTop_20dp"
+            android:textAppearance="@style/Text.Title"
+            android:layout_gravity="center"
+            tools:text="{LOGIN}" />
+
+        <ImageButton
+            android:id="@+id/backButtonImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/arrow_back_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        style="@style/View.FullWidth.WrapHeight.Vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            style="@style/View.FullWidth.WrapHeight.Vertical.marginHorizontal_32dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                style="@style/UserCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/View.FullWidth.WrapHeight.Padding_16">
+
+                    <ImageView
+                        android:id="@+id/userAvatarImageView"
+                        style="@style/View.WrapWidth.Height_0dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/location"
+                        tools:src="@tools:sample/avatars" />
+
+
+                    <TextView
+                        android:id="@+id/userName"
+                        style="@style/View.WrapWidth.WrapHeight.marginStart_20dp"
+                        android:textAppearance="@style/Text.Header"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImageView"
+                        app:layout_constraintTop_toTopOf="@+id/userAvatarImageView"
+                        tools:text="{NAME}" />
+
+                    <TextView
+                        android:id="@+id/company"
+                        style="@style/View.WrapWidth.WrapHeight.marginStart_20dp.marginTop_8dp"
+                        android:textAppearance="@style/Text"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/userName"
+                        tools:text="{COMPANY}" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        style="@style/View.WrapWidth.WrapHeight.marginStart_20dp.marginTop_2dp"
+                        android:textAppearance="@style/Text"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/company"
+                        tools:text="{EMAIL}" />
+
+                    <TextView
+                        android:id="@+id/blog"
+                        style="@style/View.WrapWidth.WrapHeight.marginStart_20dp.marginTop_2dp"
+                        android:textAppearance="@style/Text"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/email"
+                        tools:text="{BLOG}" />
+
+                    <TextView
+                        android:id="@+id/location"
+                        style="@style/View.WrapWidth.WrapHeight.marginStart_20dp.marginTop_2dp"
+                        android:textAppearance="@style/Text"
+                        app:layout_constraintStart_toEndOf="@+id/userAvatarImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/blog"
+                        tools:text="{LOCATION}" />
+
+                    <TextView
+                        android:id="@+id/infoLabel"
+                        android:text="@string/user_detail_information_label"
+                        style="@style/View.WrapWidth.WrapHeight.marginTop_20dp"
+                        android:textAppearance="@style/Text.Header"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+                    <TextView
+                        android:id="@+id/bio"
+                        style="@style/View.WrapWidth.WrapHeight.marginTop_8dp"
+                        android:textAppearance="@style/Text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/infoLabel"
+                        tools:text="{BIO}" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/followersLabel"
+                android:text="@string/user_detail_followers_title"
+                style="@style/View.WrapWidth.WrapHeight.marginTop_32dp"
+                android:textAppearance="@style/Text.Header"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/followersRecyclerView"
+                style="@style/View.FullWidth.WrapHeight.marginTop_16dp"
+                app:layout_constraintTop_toBottomOf="@+id/followersLabel" />
+
+            <ProgressBar
+                android:id="@+id/loader"
+                style="@style/View.WrapWidth.WrapHeight.marginTop_8dp"
+                android:visibility="gone"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/error"
+                style="@style/View.WrapWidth.WrapHeight"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/reloadButton"
+                android:text="@string/error_button_reload"
+                style="@style/View.WrapWidth.WrapHeight"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

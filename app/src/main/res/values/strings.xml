@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FMK</string>
+    <string name="user_detail_information_label">Информация</string>
+    <string name="user_detail_followers_title">Подписчики</string>
+    <string name="user_list_title">Пользователи</string>
+    <string name="user_list_item_followers_count">%d подписчиков</string>
+    <string name="user_list_item_repository_count">%d репозиториев</string>
+    <string name="error_button_reload">Попробовать снова</string>
+</resources>

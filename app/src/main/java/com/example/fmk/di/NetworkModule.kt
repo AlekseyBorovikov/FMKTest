@@ -1,7 +1,10 @@
 package com.example.fmk.di
 
+import com.example.fmk.data.repository.UserRepository
 import com.example.fmk.remote.UserService
+import com.example.fmk.ui.user_list.UserListAdapter
 import com.example.fmk.utils.Config
+import com.example.fmk.utils.UserDetailsDownloader
 import com.example.fmk.utils.network.OkHttpProvider
 import com.example.fmk.utils.network.RetrofitManager
 import dagger.Module
@@ -26,7 +29,7 @@ class NetworkModule {
 
     /**
      * Provides [OkHttpClient]
-     * @return - [OkHttpClient]
+     * @return [OkHttpClient]
      */
     @Singleton
     @Provides
@@ -42,7 +45,6 @@ class NetworkModule {
         @Named(value = BASE_URL) baseUrl: String,
     ): Retrofit = RetrofitManager.getRetrofit(okHttpClient, baseUrl)
 
-
     /**
      * Provides [UserService] instance
      * @param retrofit: instance for creating [UserService]
@@ -51,4 +53,12 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideVerificationService(retrofit: Retrofit): UserService = retrofit.create(UserService::class.java)
+
+    /**
+     * Provides [UserDetailsDownloader] instance
+     * @param repository: instance for creating [UserRepository]
+     * @return [UserDetailsDownloader]
+     */
+    @Provides
+    fun provideUserDetailDownloader(repository: UserRepository) = UserDetailsDownloader<UserListAdapter.UserListViewHolder>(repository)
 }

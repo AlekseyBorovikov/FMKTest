@@ -7,4 +7,5 @@ data class UserDetailViewState(
     val loading: Boolean = false,
     val error: String? = null,
     val followerList: List<User> = listOf(),
+    val user: User? = null,
 ): ViewState

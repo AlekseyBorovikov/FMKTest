@@ -15,4 +15,11 @@ data class User(
     @SerializedName("followers_url") val followersUrl: String,
     @SerializedName("public_repos") val reposCount: Int?,
     @SerializedName("followers") val followersCount: Int?,
-): Serializable
+): Serializable {
+
+    fun hasDetails(): Boolean {
+        return email != null || blog != null || company != null || location != null
+                || bio != null || reposCount != null || followersCount != null
+    }
+
+}

@@ -1,7 +1,5 @@
 Test task
 
-https://github.com/AlekseyBorovikov/FMKTest/assets/74905634/3e8fb1e8-a8f7-4aa4-bdea-eae5eadfb3a6
-
 User List Screen
 
 ![image](https://github.com/AlekseyBorovikov/FMKTest/assets/74905634/a8696f30-14f4-42f3-9a73-742ce60d143a)
